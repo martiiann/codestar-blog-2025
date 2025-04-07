@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7xwxny-y8-7j&*ha!e&s7m#%y05u7is*mos8@tcsu9t+a8iuvh'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -78,6 +78,8 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+print("DATABASE_URL is:", os.environ.get("DATABASE_URL"))
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
